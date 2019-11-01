@@ -168,10 +168,41 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         System.out.println(ex.getMessage());
                     }
                     imprimir(maestros);
-                    System.out.print("Seleccione un la posicion de un maestro: ");
+                    System.out.print("Seleccione la posicion de un maestro: ");
                     int m1 = leer.nextInt();
                     leer.nextLine();
-                    validarAL(maestros);
+            {
+                try {
+                    validarAL(maestros, m1);
+                } catch (Misexcepciones ex) {
+                    System.out.println(ex.getMessage());
+                    break;
+                }
+                    System.out.print("Seleccione la posicion de un maestro: ");
+                    int m2 = leer.nextInt();
+                    leer.nextLine();
+                try {
+                    validarAL(maestros, m2);
+                } catch (Misexcepciones ex) {
+                    System.out.println(ex.getMessage());
+                    break;
+                }
+                Avatar avata;
+                FuegoZai zai;
+                ArrayList<Fuego> listaFuego = new ArrayList<>();
+                for (Maestro m : maestros) {
+                    if (m instanceof Fuego) {
+                        listaFuego.add((Fuego)(m));
+                    }
+                    if (m instanceof Avatar) {
+                        avata = (Avatar)(m);
+                    }
+                    if (m instanceof FuegoZai) {
+                        zai = (FuegoZai)(m);
+                    }
+                }
+                Simulacion(maestros.get(m1), maestros.get(m2), listaFuego.get(0), listaFuego.get(1), listaFuego.get(2),listaFuego.get(3), avata, zai);
+            }
                 
             }//fin del switch
         }//fin del while
