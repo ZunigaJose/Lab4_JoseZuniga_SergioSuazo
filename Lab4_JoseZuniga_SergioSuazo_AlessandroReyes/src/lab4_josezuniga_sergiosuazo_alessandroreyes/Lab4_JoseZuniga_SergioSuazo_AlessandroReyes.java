@@ -1,24 +1,25 @@
 package lab4_josezuniga_sergiosuazo_alessandroreyes;
 
-
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
-    static Random rand=new Random();
+
+    static Random rand = new Random();
     public static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArrayList <Maestro> maestros= new ArrayList();
-        int contA =0;
-        int contO =0;
-        int contMF =0;
-        int contm=0;
+        ArrayList<Maestro> maestros = new ArrayList();
+        int contA = 0;
+        int contO = 0;
+        int contMF = 0;
+        int contm = 0;
         char wh = 's';
-        while(wh == 's'){
+        while (wh == 's') {
             System.out.print(""
                     + "\n0) Salir"
                     + "\n1) Crear el Avatar"
@@ -31,7 +32,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     + "\n8) Pelear"
                     + "\n Ingrese el numero de la opcion que desea ver: ");
             int opcion = leer.nextInt();
-            
+
             switch (opcion) {
                 case 0:
                     wh = 'n';
@@ -54,9 +55,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 2://aire
                     System.out.print("Cual es el nombre del Maestro de aire: ");
                     nombre = leer.next();
-                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    System.out.print("Cual es el rango de " + nombre + " : ");
                     String rango = leer.next();
-                    System.out.print("Cual es la edad de "+nombre+" : ");
+                    System.out.print("Cual es la edad de " + nombre + " : ");
                     int edad = leer.nextInt();
                     Maestro air = new Aire();
                     air.setEdad(edad);
@@ -69,9 +70,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 3://fuego
                     System.out.print("Cual es el nombre del maestro de fuego: ");
                     nombre = leer.next();
-                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
-                    System.out.print("Cual es la edad de "+nombre+" : ");
+                    System.out.print("Cual es la edad de " + nombre + " : ");
                     edad = leer.nextInt();
                     Maestro fire = new Fuego();
                     fire.setEdad(edad);
@@ -84,9 +85,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 4://agua
                     System.out.print("Cual es el nombre del maestro de agua: ");
                     nombre = leer.next();
-                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
-                    System.out.print("Cual es la edad de "+nombre+" : ");
+                    System.out.print("Cual es la edad de " + nombre + " : ");
                     edad = leer.nextInt();
                     Maestro water = new Agua();
                     water.setEdad(edad);
@@ -99,9 +100,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 5://tierra
                     System.out.print("Cual es el nombre del maestro de tierra: ");
                     nombre = leer.next();
-                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
-                    System.out.print("Cual es la edad de "+nombre+" : ");
+                    System.out.print("Cual es la edad de " + nombre + " : ");
                     edad = leer.nextInt();
                     Maestro earth = new Tierra();
                     earth.setEdad(edad);
@@ -119,9 +120,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         break;
                     }
                     nombre = "Ozai";
-                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
-                    System.out.print("Cual es la edad de "+nombre+" : ");
+                    System.out.print("Cual es la edad de " + nombre + " : ");
                     edad = leer.nextInt();
                     Maestro Ozai = new FuegoZai();
                     Ozai.setEdad(edad);
@@ -132,7 +133,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     contO++;
                     break;
                 case 7:
-                    imprimir(maestros);
+                    imprimir(maestros, true);
                     break;
                 case 8://pelear
                     try {
@@ -159,152 +160,157 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         System.out.println(ex.getMessage());
                         break;
                     }
-                    
-                    break;
-                default: 
+
+                    imprimir(maestros, false);
+                    System.out.print("\t\tSeleccione la posicion de un maestro: ");
+                    int m1 = leer.nextInt();
+                    leer.nextLine();
+                     
+                        try {
+                            validarAL(maestros, m1);
+                        } catch (Misexcepciones ex) {
+                            System.out.println(ex.getMessage());
+                            break;
+                        }
+                        System.out.print("Seleccione la posicion de un maestro: ");
+                        int m2 = leer.nextInt();
+                        leer.nextLine();
+                        try {
+                            validarAL(maestros, m2);
+                        } catch (Misexcepciones ex) {
+                            System.out.println(ex.getMessage());
+                            break;
+                        }
+                        Avatar avata = new Avatar();
+                        FuegoZai zai = new FuegoZai();
+                        ArrayList<Fuego> listaFuego = new ArrayList<>();
+                        for (Object m : maestros) {
+                            if (m instanceof Fuego) {//no entra
+                                listaFuego.add((Fuego) (m));
+                            }
+                            if (m instanceof Avatar) {
+                                avata = (Avatar) (m);
+                            }
+                            if (m instanceof FuegoZai) {
+                                zai = (FuegoZai) (m);
+                            }
+                        Simulacion(maestros.get(m1), maestros.get(m2), listaFuego.get(0), listaFuego.get(1), listaFuego.get(2), listaFuego.get(3), avata, zai);
+                        break;
+                    }
+                default:
                     try {
                         validarOpcion(opcion);
                     } catch (Misexcepciones ex) {
                         System.out.println(ex.getMessage());
                     }
-                    imprimir(maestros);
-                    System.out.print("Seleccione la posicion de un maestro: ");
-                    int m1 = leer.nextInt();
-                    leer.nextLine();
-            {
-                try {
-                    validarAL(maestros, m1);
-                } catch (Misexcepciones ex) {
-                    System.out.println(ex.getMessage());
-                    break;
-                }
-                    System.out.print("Seleccione la posicion de un maestro: ");
-                    int m2 = leer.nextInt();
-                    leer.nextLine();
-                try {
-                    validarAL(maestros, m2);
-                } catch (Misexcepciones ex) {
-                    System.out.println(ex.getMessage());
-                    break;
-                }
-                Avatar avata = new Avatar();
-                FuegoZai zai = new FuegoZai();
-                ArrayList<Fuego> listaFuego = new ArrayList<>();
-                for (Maestro m : maestros) {
-                    if (m instanceof Fuego) {
-                        listaFuego.add((Fuego)(m));
-                    }
-                    if (m instanceof Avatar) {
-                        avata = (Avatar)(m);
-                    }
-                    if (m instanceof FuegoZai) {
-                        zai = (FuegoZai)(m);
-                    }
-                }
-                Simulacion(maestros.get(m1), maestros.get(m2), listaFuego.get(0), listaFuego.get(1), listaFuego.get(2),listaFuego.get(3), avata, zai);
-            }
-                
+
+
             }//fin del switch
         }//fin del while
     }//fin del main
-    static void validarOpcion(int x)throws Misexcepciones{
-        if(x < 0 || x > 7){
-            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
+
+    static void validarOpcion(int x) throws Misexcepciones {
+        if (x < 0 || x > 7) {
+            throw new Misexcepciones(Color.red, "\n Numero fuera de las opciones\n ");
         }
     }
-    
-    static void validarAL(ArrayList x, int num)throws Misexcepciones{
-        if(num < 0 || num >= x.size()){
-            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
+
+    static void validarAL(ArrayList x, int num) throws Misexcepciones {
+        if (num < 0 || num >= x.size()) {
+            throw new Misexcepciones(Color.red, "\n Numero fuera de las opciones\n ");
         }
     }
-    
-    static void validarVic(int x)throws Misexcepciones{
-        if(x == 0){
-            throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
+
+    static void validarVic(int x) throws Misexcepciones {
+        if (x == 0) {
+            throw new Misexcepciones(Color.red, "\n Felicidades, gano \n");
         }
     }
-    
-    static void validarLostA(int x)throws Misexcepciones{
-        if(x == 0){
-            throw new Misexcepciones(Color.red,"\n Perdio, intente de nuevo \n");
+
+    static void validarLostA(int x) throws Misexcepciones {
+        if (x == 0) {
+            throw new Misexcepciones(Color.red, "\n Perdio, intente de nuevo \n");
         }
     }
-    static void validarLostM(int x, int y)throws Misexcepciones{
-        if(x==0 && y==0){
-            throw new Misexcepciones(Color.red,"\n Perdio, suerte a la proxima \n");
+
+    static void validarLostM(int x, int y) throws Misexcepciones {
+        if (x == 0 && y == 0) {
+            throw new Misexcepciones(Color.red, "\n Perdio, suerte a la proxima \n");
         }
     }
-    static void validarMaestrosF(int x)throws Misexcepciones{
-        if(x < 4){
-            throw new Misexcepciones(Color.red,"\n Se ocupan 4 maestros fuego para empezar el juego \n");
+
+    static void validarMaestrosF(int x) throws Misexcepciones {
+        if (x < 4) {
+            throw new Misexcepciones(Color.red, "\n Se ocupan 4 maestros fuego para empezar el juego \n");
         }
     }
-    
-    static void validarAvatar(int x)throws Misexcepciones{
-        if (x >= 1){
-            throw new Misexcepciones(Color.red,"\n Solo puede haber un avatar \n");
-        }     
-    }
-    
-    static void validarAvatarJ(int x)throws Misexcepciones{
-        if(x == 0 ){
-            throw new Misexcepciones(Color.red,"\n Se ocupa crear un avatar para empezar a jugar \n");
-        }     
-    }
-    
-    static void validarMaestros(int x)throws Misexcepciones{
-        if(x < 2 ){
-            throw new Misexcepciones(Color.red,"\n Ocupa tener 2 maestros, ademas de los de fuego \n");
+
+    static void validarAvatar(int x) throws Misexcepciones {
+        if (x >= 1) {
+            throw new Misexcepciones(Color.red, "\n Solo puede haber un avatar \n");
         }
     }
-    
-    static void validarOzai(int x)throws Misexcepciones{
-        if (x >= 1){
-            throw new Misexcepciones(Color.red,"\n Solo puede haber un Ozai \n");
+
+    static void validarAvatarJ(int x) throws Misexcepciones {
+        if (x == 0) {
+            throw new Misexcepciones(Color.red, "\n Se ocupa crear un avatar para empezar a jugar \n");
         }
     }
-    
-    static void validarOzaiJ(int x)throws Misexcepciones{
-        if(x == 0 ){
-            throw new Misexcepciones(Color.red,"\n Se ocupa crear a Ozai para empezar a jugar \n");
+
+    static void validarMaestros(int x) throws Misexcepciones {
+        if (x < 2) {
+            throw new Misexcepciones(Color.red, "\n Ocupa tener 2 maestros, ademas de los de fuego \n");
         }
     }
-    
-    static void validarOpcionAtt(int x)throws Misexcepciones{
-        
+
+    static void validarOzai(int x) throws Misexcepciones {
+        if (x >= 1) {
+            throw new Misexcepciones(Color.red, "\n Solo puede haber un Ozai \n");
+        }
     }
-    
-    
-    public static void imprimir(ArrayList<Maestro> maestros){
-                            System.out.println("Maestros Aire: ");
-                    String salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Aire){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Fuego: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Fuego){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Agua: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Agua){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Tierra: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Tierra){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
+
+    static void validarOzaiJ(int x) throws Misexcepciones {
+        if (x == 0) {
+            throw new Misexcepciones(Color.red, "\n Se ocupa crear a Ozai para empezar a jugar \n");
+        }
+    }
+
+    static void validarOpcionAtt(int x) throws Misexcepciones {
+
+    }
+
+    public static void imprimir(ArrayList<Maestro> maestros, boolean sera) {
+        System.out.println("Maestros Aire: ");
+        String salida = " ";
+        for (Object t : maestros) {
+            if (t instanceof Aire) {
+                System.out.println(maestros.indexOf(t) + " " + t);
+            }
+        }
+        if (sera) {
+            System.out.println("Maestros Fuego: ");
+            salida = " ";
+            for (Object t : maestros) {
+                if (t instanceof Fuego) {
+                    System.out.println(maestros.indexOf(t) + " " + t);
+                }
+            }
+        }
+
+        System.out.println("Maestros Agua: ");
+        salida = " ";
+        for (Object t : maestros) {
+            if (t instanceof Agua) {
+                System.out.println(maestros.indexOf(t) + " " + t);
+            }
+        }
+        System.out.println("Maestros Tierra: ");
+        salida = " ";
+        for (Object t : maestros) {
+            if (t instanceof Tierra) {
+                System.out.println(maestros.indexOf(t) + " " + t);
+            }
+        }
     }
     
     
