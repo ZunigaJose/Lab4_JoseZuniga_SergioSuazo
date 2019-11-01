@@ -136,35 +136,30 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     String salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Aire){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Fuego: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Fuego){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Agua: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Agua){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Tierra: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Tierra){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
-                    
                     break;
                 case 8://pelear
                     try {
@@ -591,6 +586,7 @@ public static void Simulacion(Maestro j1,Maestro j2)
                     }
                     if (j1 instanceof Agua) {
                         ataque = danio("Latigo de Agua", "Huracan", j1);
+                        ataque *= 1.20;
                     }
                     if (j1 instanceof Tierra) {
                         ataque = danio("Muralla", "Terremoto", j1);

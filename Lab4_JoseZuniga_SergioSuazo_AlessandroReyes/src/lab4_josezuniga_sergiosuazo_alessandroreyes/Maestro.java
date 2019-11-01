@@ -55,5 +55,11 @@ public abstract class Maestro {
     public abstract int ataque1();
     
     public abstract int ataque2();
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + " Rango: " + rango + " Edad: " + edad + ", vida=" + vida;
+    }
+ 
     
 }
