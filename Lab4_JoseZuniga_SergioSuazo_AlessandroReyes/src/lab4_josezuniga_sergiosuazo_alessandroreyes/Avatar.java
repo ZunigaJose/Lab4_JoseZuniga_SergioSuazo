@@ -1,16 +1,23 @@
 package lab4_josezuniga_sergiosuazo_alessandroreyes;
 
-public class Avatar {
+public class Avatar extends Maestro {
     private Fuego mFuego;
     private Agua mAgua;
     private Aire mAire;
     private Tierra mTierra;
+    private int vida;
+    private String nombre;
 
     public Avatar() {
+    }
+    
+    public Avatar(String nombre) {
         this.mFuego = new Fuego();
         this.mAgua = new Agua();
         this.mAire = new Aire();
         this.mTierra = new Tierra();
+        this.nombre = nombre;
+        this.vida = 350;
     }
 
     public Fuego getmFuego() {
@@ -43,6 +50,16 @@ public class Avatar {
 
     public void setmTierra(Tierra mTierra) {
         this.mTierra = mTierra;
+    }
+
+    @Override
+    public int ataque1() {
+    return 0;
+    }
+
+    @Override
+    public int ataque2() {
+        return 0;
     }
     
 }
