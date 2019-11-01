@@ -132,34 +132,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     contO++;
                     break;
                 case 7:
-                    System.out.println("Maestros Aire: ");
-                    String salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Aire){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Fuego: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Fuego){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Agua: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Agua){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
-                    System.out.println("Maestros Tierra: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Tierra){
-                            System.out.println(maestros.indexOf(t) + " " + t);
-                        } 
-                    }
+                    imprimir(maestros);
                     break;
                 case 8://pelear
                     try {
@@ -186,6 +159,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         System.out.println(ex.getMessage());
                         break;
                     }
+                    
                     break;
                 default: 
                     try {
@@ -193,6 +167,11 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     } catch (Misexcepciones ex) {
                         System.out.println(ex.getMessage());
                     }
+                    imprimir(maestros);
+                    System.out.print("Seleccione un la posicion de un maestro: ");
+                    int m1 = leer.nextInt();
+                    leer.nextLine();
+                    validarAL(maestros);
                 
             }//fin del switch
         }//fin del while
@@ -254,7 +233,36 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }
     
     
-    
+    public static void imprimir(ArrayList<Maestro> maestros){
+                            System.out.println("Maestros Aire: ");
+                    String salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Aire){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Fuego: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Fuego){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Agua: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Agua){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Tierra: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Tierra){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+    }
     
     
     
