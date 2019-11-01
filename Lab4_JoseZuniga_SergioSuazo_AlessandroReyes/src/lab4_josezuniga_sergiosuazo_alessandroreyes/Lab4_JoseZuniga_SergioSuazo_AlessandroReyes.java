@@ -490,9 +490,25 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     
     
     
-    
-    
-    
+      public static int danio(String op1, String op2, Maestro jugador) {
+        char op;
+        int num;
+        System.out.print("a. " + op1 + "\n"
+                + "b. " + op2 + ": ");
+        op = leer.nextLine().toLowerCase().charAt(0);
+          switch (op) {
+              case 'a':
+                  num = jugador.ataque1();
+                  break;
+              case 'b':
+                  num = jugador.ataque2();
+                  break;
+              default:
+                  return danio(op1, op2, jugador);
+          }
+          return num;
+    }
+
     
     
     
@@ -511,6 +527,7 @@ public static void Simulacion(Maestro j1,Maestro j2)
     int turno=0;
     int ataque;
     int atacar;
+    int modo=0;
     boolean game=false;
     while(game=false)
     {
@@ -520,8 +537,24 @@ public static void Simulacion(Maestro j1,Maestro j2)
             {
                 if(turno%2==0)
                 {
+                    System.out.print("A cual jugador desea atacar?\n"
+                            + "1. Enemigo 1\n"
+                            + "2. Enemigo 2: ");
                     //imprimir ataques j1
                     System.out.println("Elija el ataque: ");
+                    if (j1 instanceof Aire) {
+                        ataque = danio("Bola de Aire", "Remolino", j1);
+                    }
+                    if (j1 instanceof Agua) {
+                        ataque = danio("Latigo de Agua", "Huracan", j1);
+                    }
+                    if (j1 instanceof Tierra) {
+                        ataque = danio("Muralla", "Terremoto", j1);
+                    }
+                    if (j1 instanceof Fuego) {
+                        ataque = danio("Incendio", "Lanzallamas", j1);
+                    }
+                    
                     //traer daño de ataque
                 }
                 else
@@ -541,7 +574,27 @@ public static void Simulacion(Maestro j1,Maestro j2)
             }
             case 2:
             {
-                System.out.println("Desea subir a modo Avatar? (s/n");
+                if(modo==0)
+                {
+                    String resp="";
+                    System.out.println("Desea subir a modo Avatar? (s/n");
+                    resp=leer.next();
+                    if(resp=="s")
+                    {
+                        //setlife 550;
+                    }
+                    else
+                    {
+                        //setlife 300;
+                    }
+                    modo=1;
+                }
+                //listar ataques
+                System.out.println("Selecione el ataque: ");
+                ataque=leer.nextInt();
+                //traer y affectar dano
+                ataque=rand.nextInt(3);
+                //traer y afectar dano   
             }
         }
     }
