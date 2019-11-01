@@ -1,10 +1,13 @@
 package lab4_josezuniga_sergiosuazo_alessandroreyes;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Random;
 public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
+    static Random rand=new Random();
     public static Scanner leer = new Scanner(System.in);
+
     public static void main(String[] args) {
         ArrayList <Maestro> maestros= new ArrayList();
         char wh = 's';
@@ -434,7 +437,49 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     
     
     
-    
+public static void Simulacion(Maestro j1,Maestro j2)
+{
+    Avatar a;
+    //Tsai t;
+    int ronda=0;
+    int turno=0;
+    int ataque;
+    int atacar;
+    boolean game=false;
+    while(game=false)
+    {
+        switch(ronda)
+        {
+            case 0:
+            {
+                if(turno%2==0)
+                {
+                    //imprimir ataques j1
+                    System.out.println("Elija el ataque: ");
+                    //traer daño de ataque
+                }
+                else
+                {
+                    //imprimir ataques j2
+                    System.out.println("Elija el ataque: ");
+                    //traer daño de ataque
+                }
+                ataque=rand.nextInt(2);
+                atacar=rand.nextInt(2);
+                //afectar daño
+                break;
+            }
+            case 1:
+            {
+                
+            }
+            case 2:
+            {
+                System.out.println("Desea subir a modo Avatar? (s/n");
+            }
+        }
+    }
+}
     
     
     
