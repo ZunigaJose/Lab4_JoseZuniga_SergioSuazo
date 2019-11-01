@@ -609,18 +609,15 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     
     
     
-public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4)
+public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestro f1,Maestro f2,Avatar a,FuegoZai z)
 {
-    Avatar a;
-    FuegoZai z;
     int ronda=0;
-    int turno=0;
-    int ataque=0;
     int atacar;
     int modo=0;
     boolean game=false;
     while(game=false)
     {
+        int ataque=0;
         switch(ronda)
         {
             case 0:
@@ -743,10 +740,54 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4)
                     case 7: dmg=a.getmFuego().ataque1();
                     case 8: dmg=a.getmFuego().ataque2();                    
                 }
+                System.out.print("A cual jugador desea atacar?\n"
+                            + "1. Enemigo 1\n"
+                            + "2. Enemigo 2: ");
+                atacar=leer.nextInt();                
+                if(atacar==1)
+                {
+                    f1.setVida(f1.getVida()-ataque);
+                }
+                else
+                {
+                    f2.setVida(f2.getVida()-ataque);
+                }
+                ataque=rand.nextInt(2);
+                if(ataque==0)
+                {
+                    ataque=f1.ataque1();
+                }
+                else
+                {
+                    ataque=f1.ataque2();
+                }    
+                //Ataque cpu 1
+                ataque=rand.nextInt(2);
+                if(ataque==0)
+                {
+                    ataque=f2.ataque1();
+                }
+                else
+                {
+                    ataque=f2.ataque2();
+                }
+                a.setVida(a.getVida()-ataque);
                 
+                //Ataque cpu2
+                ataque=rand.nextInt(2);
+                if(ataque==0)
+                {
+                    ataque=j4.ataque1();
+                }
+                else
+                {
+                    ataque=j4.ataque2();
+                }
+                a.setVida(a.getVida()-ataque);
             }
             case 2:
             {
+                int daño=0;
                 if(modo==0)
                 {
                     String resp="";
@@ -754,20 +795,53 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4)
                     resp=leer.next();
                     if(resp=="s")
                     {
-                        //setlife 550;
+                        a.setVida(550);
                     }
                     else
                     {
-                        //setlife 300;
+                        a.setVida(350);
                     }
                     modo=1;
                 }
                 //listar ataques
-                System.out.println("Selecione el ataque: ");
+                int dmg;
+                System.out.println("Seleccione que ataque usar: "
+                        + "1- Bola de Aire"
+                        + "2- Remolino"
+                        + "3- Latigo de Agua"
+                        + "4- Huracan"
+                        + "5- Muralla"
+                        + "6- Terremoto"
+                        + "7- Incendio"
+                        + "8- Lanzallamas");
                 ataque=leer.nextInt();
-                //traer y affectar dano
+                switch(ataque)
+                {
+                    case 1: dmg=a.getmAire().ataque1();
+                    case 2: dmg=a.getmAire().ataque2();
+                    case 3: dmg=a.getmAgua().ataque1();
+                    case 4: dmg=a.getmAgua().ataque2(); 
+                    case 5: dmg=a.getmTierra().ataque1();
+                    case 6: dmg=a.getmTierra().ataque2();
+                    case 7: dmg=a.getmFuego().ataque1();
+                    case 8: dmg=a.getmFuego().ataque2();                    
+                }
+                z.setVida(z.getVida()-ataque);
                 ataque=rand.nextInt(3);
-                //traer y afectar dano   
+                if(ataque==0)
+                {
+                    daño=z.ataque1();
+                }
+                if(ataque==1)
+                {
+                    daño=z.getmFuego().ataque1();
+                }
+                if(ataque==2)
+                {
+                    daño=z.getmFuego().ataque2();
+                }
+                a.setVida(a.getVida()-daño);
+                
             }
         }
     }
