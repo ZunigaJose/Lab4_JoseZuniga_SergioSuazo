@@ -31,16 +31,16 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 1:
                     System.out.print("Cual es el nombre del avatar: ");
                     String nombre = leer.next();
-                    System.out.print("Cual es el rango de "+nombre+" : ");
-                    String rango = leer.next();
                     Maestro ava = new Avatar();
-                    
+                    ava.setNombre(nombre);
+                    ava.getVida();
+                    maestros.add(ava);
                     break;
                 case 2://aire
                     System.out.print("Cual es el nombre del Maestro de aire: ");
                     nombre = leer.next();
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    rango = leer.next();
+                    String rango = leer.next();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     int edad = leer.nextInt();
                     Maestro air = new Aire();
@@ -103,6 +103,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     Ozai.setNombre(nombre);
                     Ozai.setRango(rango);
                     Ozai.getVida();
+                    maestros.add(Ozai);
                     break;
                 case 7:
                     System.out.println("Maestros Aire: ");
