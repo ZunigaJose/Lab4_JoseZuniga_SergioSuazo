@@ -187,8 +187,8 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.println(ex.getMessage());
                     break;
                 }
-                Avatar avata;
-                FuegoZai zai;
+                Avatar avata = new Avatar();
+                FuegoZai zai = new FuegoZai();
                 ArrayList<Fuego> listaFuego = new ArrayList<>();
                 for (Maestro m : maestros) {
                     if (m instanceof Fuego) {

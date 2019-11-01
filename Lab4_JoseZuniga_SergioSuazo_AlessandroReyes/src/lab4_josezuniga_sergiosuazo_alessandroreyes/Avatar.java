@@ -6,6 +6,7 @@ public class Avatar extends Maestro {
     private Aire mAire;
     private Tierra mTierra;
     public Avatar() {
+        super.setVida(350);
     }
     
     public Avatar(String nombre) {

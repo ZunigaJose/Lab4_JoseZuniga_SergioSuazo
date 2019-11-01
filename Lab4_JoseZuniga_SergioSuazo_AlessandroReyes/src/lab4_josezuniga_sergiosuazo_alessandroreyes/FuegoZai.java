@@ -5,6 +5,7 @@ public class FuegoZai extends Maestro{
     private Fuego mFuego;
     
     public FuegoZai() {
+        super.setVida(400);
     }
 
     public FuegoZai(Fuego mFuego, String nombre, String rango, int edad, int vida) {
