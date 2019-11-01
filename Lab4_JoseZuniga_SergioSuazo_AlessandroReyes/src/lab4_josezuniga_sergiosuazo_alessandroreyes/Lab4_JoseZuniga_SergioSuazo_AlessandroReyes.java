@@ -220,18 +220,18 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }
     
     static void validarVic(int x)throws Misexcepciones{
-        if(x == 0){
+        if(x <= 0){
             throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
         }
     }
     
     static void validarLostA(int x)throws Misexcepciones{
-        if(x == 0){
+        if(x <= 0){
             throw new Misexcepciones(Color.red,"\n Perdio, intente de nuevo \n");
         }
     }
     static void validarLostM(int x, int y)throws Misexcepciones{
-        if(x==0 && y==0){
+        if(x<=0 && y<=0){
             throw new Misexcepciones(Color.red,"\n Perdio, suerte a la proxima \n");
         }
     }
