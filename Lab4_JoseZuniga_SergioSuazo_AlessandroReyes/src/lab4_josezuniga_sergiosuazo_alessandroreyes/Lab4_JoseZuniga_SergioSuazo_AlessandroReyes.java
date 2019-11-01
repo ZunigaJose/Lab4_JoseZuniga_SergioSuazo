@@ -1,15 +1,22 @@
 package lab4_josezuniga_sergiosuazo_alessandroreyes;
 
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     static Random rand=new Random();
     public static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
         ArrayList <Maestro> maestros= new ArrayList();
+        int contA =0;
+        int contO =0;
+        int contMF =0;
+        int contm=0;
         char wh = 's';
         while(wh == 's'){
             System.out.print("Ingrese el numero de la opcion que desea ver"
@@ -21,7 +28,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     + "\n5) Crear Maestro Tierra"
                     + "\n6) Crear Maestro Ozai"
                     + "\n7) Listar Maestros"
-                    + "\n8) Pelear");
+                    + "\n8) Pelear: ");
             int opcion = leer.nextInt();
             
             switch(opcion){
@@ -29,12 +36,20 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     wh = 'n';
                     break;
                 case 1:
+            {
+                try {
+                    validarAvatar(contA);
+                } catch (Misexcepciones ex) {
+                    System.out.print(ex.getMessage());
+                }
+            }
                     System.out.print("Cual es el nombre del avatar: ");
                     String nombre = leer.next();
                     Maestro ava = new Avatar();
                     ava.setNombre(nombre);
                     ava.getVida();
                     maestros.add(ava);
+                    contA++;
                     break;
                 case 2://aire
                     System.out.print("Cual es el nombre del Maestro de aire: ");
@@ -49,6 +64,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     air.setRango(rango);
                     air.getVida();
                     maestros.add(air);
+                    contm++;
                     break;
                 case 3://fuego
                     System.out.print("Cual es el nombre del maestro de fuego: ");
@@ -63,6 +79,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     fire.setRango(rango);
                     fire.getVida();
                     maestros.add(fire);
+                    contMF++;
                     break;
                 case 4://agua
                     System.out.print("Cual es el nombre del maestro de agua: ");
@@ -77,6 +94,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     water.setRango(rango);
                     water.getVida();
                     maestros.add(water);
+                    contm++;
                     break;
                 case 5://tierra
                     System.out.print("Cual es el nombre del maestro de tierra: ");
@@ -91,6 +109,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     earth.setRango(rango);
                     earth.getVida();
                     maestros.add(earth);
+                    contm++;
                     break;
                 case 6://zai
                     nombre = "Ozai";
@@ -143,11 +162,57 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                 case 8://pelear
                     
                     break;
+                default:
+            {
+                try {
+                    validarOpcion(opcion);
+                } catch (Misexcepciones ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
             }//fin del switch
         }//fin del while
     }//fin del main
-    
-    
+    static void validarOpcion(int x)throws Misexcepciones{
+        if(x < 0 || x > 7){
+            throw new Misexcepciones(Color.red,"No se aceptan negativos");
+        }
+    }
+    static void validarVic(int x)throws Misexcepciones{
+        
+    }
+    static void validarLost(int x)throws Misexcepciones{
+        
+    }
+    static void validarMaestrosF(int x)throws Misexcepciones{
+        if(x < 4){
+            throw new Misexcepciones(Color.red,"Se ocupan 4 maestros fuego para empezar el juego");
+        }
+    }
+    static void validarAvatar(int x)throws Misexcepciones{
+        if(x == 0 ){
+            throw new Misexcepciones(Color.red,"Se ocupa crear un avatar para empezar a jugar");
+        }else if (x == 1){
+            throw new Misexcepciones(Color.red,"Solo puede haber un avatar");
+        }
+                
+    }
+    static void validarMaestros(int x)throws Misexcepciones{
+        if(x < 0 || x > 7){
+            throw new Misexcepciones(Color.red,"Ocupa tener 2 maestros, ademas de los de fuego");
+        }
+    }
+    static void validarOzai(int x)throws Misexcepciones{
+        if(x == 0 ){
+            throw new Misexcepciones(Color.red,"Se ocupa crear a Ozai para empezar a jugar");
+        }else if (x == 1){
+            throw new Misexcepciones(Color.red,"Solo puede haber un Ozai");
+        }
+    }
+    static void validarOpcionAtt(int x)throws Misexcepciones{
+        
+        
+    }
     
     
     
