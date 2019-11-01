@@ -56,6 +56,6 @@ public class Avatar extends Maestro {
     @Override
     public int ataque2() {
         return 0;
-    }
+    }    
     
 }

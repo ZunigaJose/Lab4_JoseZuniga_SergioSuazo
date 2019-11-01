@@ -132,39 +132,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     contO++;
                     break;
                 case 7:
-                    System.out.println("Maestros Aire: ");
-                    String salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Aire){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
-                        } 
-                    }
-                    System.out.println(salida);
-                    System.out.println("Maestros Fuego: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Fuego){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
-                        } 
-                    }
-                    System.out.println(salida);
-                    System.out.println("Maestros Agua: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Agua){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
-                        } 
-                    }
-                    System.out.println(salida);
-                    System.out.println("Maestros Tierra: ");
-                    salida = " ";
-                    for (Object t : maestros) {
-                        if(t instanceof Tierra){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
-                        } 
-                    }
-                    System.out.println(salida);
-                    
+                    imprimir(maestros);
                     break;
                 case 8://pelear
                     try {
@@ -191,6 +159,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         System.out.println(ex.getMessage());
                         break;
                     }
+                    
                     break;
                 default: 
                     try {
@@ -198,59 +167,76 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     } catch (Misexcepciones ex) {
                         System.out.println(ex.getMessage());
                     }
+                    imprimir(maestros);
+                    System.out.print("Seleccione un la posicion de un maestro: ");
+                    int m1 = leer.nextInt();
+                    leer.nextLine();
+                    validarAL(maestros);
                 
             }//fin del switch
         }//fin del while
     }//fin del main
     static void validarOpcion(int x)throws Misexcepciones{
         if(x < 0 || x > 7){
-            throw new Misexcepciones(Color.red,"Numero fuera de las opciones");
+            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
+        }
+    }
+    
+    static void validarAL(ArrayList x, int num)throws Misexcepciones{
+        if(num < 0 || num >= x.size()){
+            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
         }
     }
     
     static void validarVic(int x)throws Misexcepciones{
-        
+        if(x == 0){
+            throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
+        }
     }
     
     static void validarLostA(int x)throws Misexcepciones{
-        
+        if(x == 0){
+            throw new Misexcepciones(Color.red,"\n Perdio, intente de nuevo \n");
+        }
     }
     static void validarLostM(int x, int y)throws Misexcepciones{
-        
+        if(x==0 && y==0){
+            throw new Misexcepciones(Color.red,"\n Perdio, suerte a la proxima \n");
+        }
     }
     static void validarMaestrosF(int x)throws Misexcepciones{
         if(x < 4){
-            throw new Misexcepciones(Color.red,"Se ocupan 4 maestros fuego para empezar el juego");
+            throw new Misexcepciones(Color.red,"\n Se ocupan 4 maestros fuego para empezar el juego \n");
         }
     }
     
     static void validarAvatar(int x)throws Misexcepciones{
         if (x >= 1){
-            throw new Misexcepciones(Color.red,"Solo puede haber un avatar");
+            throw new Misexcepciones(Color.red,"\n Solo puede haber un avatar \n");
         }     
     }
     
     static void validarAvatarJ(int x)throws Misexcepciones{
         if(x == 0 ){
-            throw new Misexcepciones(Color.red,"Se ocupa crear un avatar para empezar a jugar");
+            throw new Misexcepciones(Color.red,"\n Se ocupa crear un avatar para empezar a jugar \n");
         }     
     }
     
     static void validarMaestros(int x)throws Misexcepciones{
         if(x < 2 ){
-            throw new Misexcepciones(Color.red,"Ocupa tener 2 maestros, ademas de los de fuego");
+            throw new Misexcepciones(Color.red,"\n Ocupa tener 2 maestros, ademas de los de fuego \n");
         }
     }
     
     static void validarOzai(int x)throws Misexcepciones{
         if (x >= 1){
-            throw new Misexcepciones(Color.red,"Solo puede haber un Ozai");
+            throw new Misexcepciones(Color.red,"\n Solo puede haber un Ozai \n");
         }
     }
     
     static void validarOzaiJ(int x)throws Misexcepciones{
         if(x == 0 ){
-            throw new Misexcepciones(Color.red,"Se ocupa crear a Ozai para empezar a jugar");
+            throw new Misexcepciones(Color.red,"\n Se ocupa crear a Ozai para empezar a jugar \n");
         }
     }
     
@@ -259,7 +245,36 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }
     
     
-    
+    public static void imprimir(ArrayList<Maestro> maestros){
+                            System.out.println("Maestros Aire: ");
+                    String salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Aire){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Fuego: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Fuego){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Agua: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Agua){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+                    System.out.println("Maestros Tierra: ");
+                    salida = " ";
+                    for (Object t : maestros) {
+                        if(t instanceof Tierra){
+                            System.out.println(maestros.indexOf(t) + " " + t);
+                        } 
+                    }
+    }
     
     
     
@@ -586,6 +601,7 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     }
                     if (j1 instanceof Agua) {
                         ataque = danio("Latigo de Agua", "Huracan", j1);
+                        ataque *= 1.20;
                     }
                     if (j1 instanceof Tierra) {
                         ataque = danio("Muralla", "Terremoto", j1);
