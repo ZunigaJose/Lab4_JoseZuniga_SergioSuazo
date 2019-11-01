@@ -237,7 +237,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }
     
     static void validarMaestros(int x)throws Misexcepciones{
-        if(x < 0 || x > 7){
+        if(x < 2 ){
             throw new Misexcepciones(Color.red,"Ocupa tener 2 maestros, ademas de los de fuego");
         }
     }
