@@ -19,7 +19,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
         int contm=0;
         char wh = 's';
         while(wh == 's'){
-            System.out.print("Ingrese el numero de la opcion que desea ver"
+            System.out.print(""
                     + "\n0) Salir"
                     + "\n1) Crear el Avatar"
                     + "\n2) Crear Maestro Aire"
@@ -28,21 +28,21 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     + "\n5) Crear Maestro Tierra"
                     + "\n6) Crear Maestro Ozai"
                     + "\n7) Listar Maestros"
-                    + "\n8) Pelear: ");
+                    + "\n8) Pelear"
+                    + "\n Ingrese el numero de la opcion que desea ver: ");
             int opcion = leer.nextInt();
             
-            switch(opcion){
+            switch (opcion) {
                 case 0:
                     wh = 'n';
                     break;
                 case 1:
-            {
-                try {
-                    validarAvatar(contA);
-                } catch (Misexcepciones ex) {
-                    System.out.print(ex.getMessage());
-                }
-            }
+                    try {
+                        validarAvatar(contA);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
                     System.out.print("Cual es el nombre del avatar: ");
                     String nombre = leer.next();
                     Maestro ava = new Avatar();
@@ -112,6 +112,12 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     contm++;
                     break;
                 case 6://zai
+                    try {
+                        validarOzai(contO);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
                     nombre = "Ozai";
                     System.out.print("Cual es el rango de "+nombre+" : ");
                     rango = leer.next();
@@ -123,6 +129,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     Ozai.setRango(rango);
                     Ozai.getVida();
                     maestros.add(Ozai);
+                    contO++;
                     break;
                 case 7:
                     System.out.println("Maestros Aire: ");
@@ -160,28 +167,55 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     
                     break;
                 case 8://pelear
-                    
+                    try {
+                        validarAvatarJ(contA);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
+                    try {
+                        validarOzaiJ(contO);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
+                    try {
+                        validarMaestrosF(contMF);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
+                    try {
+                        validarMaestros(contm);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                        break;
+                    }
                     break;
-                default:
-            {
-                try {
-                    validarOpcion(opcion);
-                } catch (Misexcepciones ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
+                default: 
+                    try {
+                        validarOpcion(opcion);
+                    } catch (Misexcepciones ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                
             }//fin del switch
         }//fin del while
     }//fin del main
     static void validarOpcion(int x)throws Misexcepciones{
         if(x < 0 || x > 7){
-            throw new Misexcepciones(Color.red,"No se aceptan negativos");
+            throw new Misexcepciones(Color.red,"Numero fuera de las opciones");
         }
     }
+    
     static void validarVic(int x)throws Misexcepciones{
         
     }
-    static void validarLost(int x)throws Misexcepciones{
+    
+    static void validarLostA(int x)throws Misexcepciones{
+        
+    }
+    static void validarLostM(int x, int y)throws Misexcepciones{
         
     }
     static void validarMaestrosF(int x)throws Misexcepciones{
@@ -189,28 +223,38 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
             throw new Misexcepciones(Color.red,"Se ocupan 4 maestros fuego para empezar el juego");
         }
     }
+    
     static void validarAvatar(int x)throws Misexcepciones{
+        if (x >= 1){
+            throw new Misexcepciones(Color.red,"Solo puede haber un avatar");
+        }     
+    }
+    
+    static void validarAvatarJ(int x)throws Misexcepciones{
         if(x == 0 ){
             throw new Misexcepciones(Color.red,"Se ocupa crear un avatar para empezar a jugar");
-        }else if (x == 1){
-            throw new Misexcepciones(Color.red,"Solo puede haber un avatar");
-        }
-                
+        }     
     }
+    
     static void validarMaestros(int x)throws Misexcepciones{
-        if(x < 0 || x > 7){
+        if(x < 2 ){
             throw new Misexcepciones(Color.red,"Ocupa tener 2 maestros, ademas de los de fuego");
         }
     }
+    
     static void validarOzai(int x)throws Misexcepciones{
-        if(x == 0 ){
-            throw new Misexcepciones(Color.red,"Se ocupa crear a Ozai para empezar a jugar");
-        }else if (x == 1){
+        if (x >= 1){
             throw new Misexcepciones(Color.red,"Solo puede haber un Ozai");
         }
     }
+    
+    static void validarOzaiJ(int x)throws Misexcepciones{
+        if(x == 0 ){
+            throw new Misexcepciones(Color.red,"Se ocupa crear a Ozai para empezar a jugar");
+        }
+    }
+    
     static void validarOpcionAtt(int x)throws Misexcepciones{
-        
         
     }
     
