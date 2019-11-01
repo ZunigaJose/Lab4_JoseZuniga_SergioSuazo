@@ -1,5 +1,5 @@
 package lab4_josezuniga_sergiosuazo_alessandroreyes;
 
-public class Maestro {
+public class FuegoZai {
     
 }
