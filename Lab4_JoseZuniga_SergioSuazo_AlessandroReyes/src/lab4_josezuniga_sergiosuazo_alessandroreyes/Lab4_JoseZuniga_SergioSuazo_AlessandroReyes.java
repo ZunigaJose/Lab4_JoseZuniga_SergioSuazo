@@ -7,7 +7,6 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     public static Scanner leer = new Scanner(System.in);
     public static void main(String[] args) {
         ArrayList <Maestro> maestros= new ArrayList();
-        
         char wh = 's';
         while(wh == 's'){
             System.out.print("Ingrese el numero de la opcion que desea ver"
@@ -42,6 +41,11 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     int edad = leer.nextInt();
                     Maestro air = new Aire();
+                    air.setEdad(edad);
+                    air.setNombre(nombre);
+                    air.setRango(rango);
+                    air.getVida();
+                    maestros.add(air);
                     break;
                 case 3://fuego
                     System.out.print("Cual es el nombre del maestro de fuego: ");
@@ -51,6 +55,11 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro fire = new Fuego();
+                    fire.setEdad(edad);
+                    fire.setNombre(nombre);
+                    fire.setRango(rango);
+                    fire.getVida();
+                    maestros.add(fire);
                     break;
                 case 4://agua
                     System.out.print("Cual es el nombre del maestro de agua: ");
@@ -60,6 +69,11 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro water = new Agua();
+                    water.setEdad(edad);
+                    water.setNombre(nombre);
+                    water.setRango(rango);
+                    water.getVida();
+                    maestros.add(water);
                     break;
                 case 5://tierra
                     System.out.print("Cual es el nombre del maestro de tierra: ");
@@ -69,6 +83,11 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro earth = new Tierra();
+                    earth.setEdad(edad);
+                    earth.setNombre(nombre);
+                    earth.setRango(rango);
+                    earth.getVida();
+                    maestros.add(earth);
                     break;
                 case 6://zai
                     nombre = "Ozai";
@@ -77,6 +96,10 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro Ozai = new FuegoZai();
+                    Ozai.setEdad(edad);
+                    Ozai.setNombre(nombre);
+                    Ozai.setRango(rango);
+                    Ozai.getVida();
                     break;
                 case 7:
                     System.out.println("Maestros Aire: ");
