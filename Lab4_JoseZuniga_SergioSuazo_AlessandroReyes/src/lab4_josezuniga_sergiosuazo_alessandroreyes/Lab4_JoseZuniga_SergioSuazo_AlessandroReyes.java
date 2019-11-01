@@ -422,6 +422,7 @@ public static void Simulacion(Maestro j1,Maestro j2)
     int turno=0;
     int ataque;
     int atacar;
+    int modo=0;
     boolean game=false;
     while(game=false)
     {
@@ -452,7 +453,27 @@ public static void Simulacion(Maestro j1,Maestro j2)
             }
             case 2:
             {
-                System.out.println("Desea subir a modo Avatar? (s/n");
+                if(modo==0)
+                {
+                    String resp="";
+                    System.out.println("Desea subir a modo Avatar? (s/n");
+                    resp=leer.next();
+                    if(resp=="s")
+                    {
+                        //setlife 550;
+                    }
+                    else
+                    {
+                        //setlife 300;
+                    }
+                    modo=1;
+                }
+                //listar ataques
+                System.out.println("Selecione el ataque: ");
+                ataque=leer.nextInt();
+                //traer y affectar dano
+                ataque=rand.nextInt(3);
+                //traer y afectar dano   
             }
         }
     }
