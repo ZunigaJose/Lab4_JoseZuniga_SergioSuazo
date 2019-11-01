@@ -178,53 +178,65 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }//fin del main
     static void validarOpcion(int x)throws Misexcepciones{
         if(x < 0 || x > 7){
-            throw new Misexcepciones(Color.red,"Numero fuera de las opciones");
+            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
+        }
+    }
+    
+    static void validarAL(ArrayList x, int num)throws Misexcepciones{
+        if(num < 0 || num >= x.size()){
+            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
         }
     }
     
     static void validarVic(int x)throws Misexcepciones{
-        
+        if(x == 0){
+            throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
+        }
     }
     
     static void validarLostA(int x)throws Misexcepciones{
-        
+        if(x == 0){
+            throw new Misexcepciones(Color.red,"\n Perdio, intente de nuevo \n");
+        }
     }
     static void validarLostM(int x, int y)throws Misexcepciones{
-        
+        if(x==0 && y==0){
+            throw new Misexcepciones(Color.red,"\n Perdio, suerte a la proxima \n");
+        }
     }
     static void validarMaestrosF(int x)throws Misexcepciones{
         if(x < 4){
-            throw new Misexcepciones(Color.red,"Se ocupan 4 maestros fuego para empezar el juego");
+            throw new Misexcepciones(Color.red,"\n Se ocupan 4 maestros fuego para empezar el juego \n");
         }
     }
     
     static void validarAvatar(int x)throws Misexcepciones{
         if (x >= 1){
-            throw new Misexcepciones(Color.red,"Solo puede haber un avatar");
+            throw new Misexcepciones(Color.red,"\n Solo puede haber un avatar \n");
         }     
     }
     
     static void validarAvatarJ(int x)throws Misexcepciones{
         if(x == 0 ){
-            throw new Misexcepciones(Color.red,"Se ocupa crear un avatar para empezar a jugar");
+            throw new Misexcepciones(Color.red,"\n Se ocupa crear un avatar para empezar a jugar \n");
         }     
     }
     
     static void validarMaestros(int x)throws Misexcepciones{
         if(x < 2 ){
-            throw new Misexcepciones(Color.red,"Ocupa tener 2 maestros, ademas de los de fuego");
+            throw new Misexcepciones(Color.red,"\n Ocupa tener 2 maestros, ademas de los de fuego \n");
         }
     }
     
     static void validarOzai(int x)throws Misexcepciones{
         if (x >= 1){
-            throw new Misexcepciones(Color.red,"Solo puede haber un Ozai");
+            throw new Misexcepciones(Color.red,"\n Solo puede haber un Ozai \n");
         }
     }
     
     static void validarOzaiJ(int x)throws Misexcepciones{
         if(x == 0 ){
-            throw new Misexcepciones(Color.red,"Se ocupa crear a Ozai para empezar a jugar");
+            throw new Misexcepciones(Color.red,"\n Se ocupa crear a Ozai para empezar a jugar \n");
         }
     }
     
