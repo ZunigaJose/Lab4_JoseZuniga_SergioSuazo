@@ -5,19 +5,15 @@ public class Avatar extends Maestro {
     private Agua mAgua;
     private Aire mAire;
     private Tierra mTierra;
-    private int vida;
-    private String nombre;
-
     public Avatar() {
     }
     
     public Avatar(String nombre) {
+        super(nombre, 350);
         this.mFuego = new Fuego();
         this.mAgua = new Agua();
         this.mAire = new Aire();
         this.mTierra = new Tierra();
-        this.nombre = nombre;
-        this.vida = 350;
     }
 
     public Fuego getmFuego() {

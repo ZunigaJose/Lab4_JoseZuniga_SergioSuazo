@@ -7,6 +7,11 @@ public abstract class Maestro {
 
     public Maestro() {
     }
+
+    public Maestro(String nombre, int vida) {
+        this.nombre = nombre;
+        this.vida = vida;
+    }
     
     public Maestro(String nombre, String rango, int edad, int vida) {
         this.nombre = nombre;
