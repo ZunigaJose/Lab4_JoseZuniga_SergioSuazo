@@ -203,6 +203,12 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
         }
     }
     
+    static void validarAL(ArrayList x, int num)throws Misexcepciones{
+        if(num < 0 || num >= x.size()){
+            throw new Misexcepciones(Color.red,"\n Numero fuera de las opciones\n ");
+        }
+    }
+    
     static void validarVic(int x)throws Misexcepciones{
         if(x == 0){
             throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
