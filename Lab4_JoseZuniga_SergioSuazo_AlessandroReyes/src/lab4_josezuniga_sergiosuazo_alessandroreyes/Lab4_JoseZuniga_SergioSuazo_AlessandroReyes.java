@@ -340,6 +340,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
 public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestro f1,Maestro f2,Avatar a,FuegoZai z)
 {
     int ronda=0;
+    int vida;
     int atacar;
     int modo=0;
     boolean game=false;
@@ -348,6 +349,7 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
         int ataque=0;
         switch(ronda)
         {
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 0:
             {
                     System.out.print("A cual jugador desea atacar?\n"
@@ -402,6 +404,10 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     {
                         j4.setVida(j4.getVida()-ataque);
                     }
+                if(j3.getVida()<=0&&j4.getVida()<=0)
+                {
+                    ronda++;
+                }
                     
                     
                 //Ataque compu1
@@ -441,9 +447,16 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                 else
                 {
                     j2.setVida(j2.getVida()-ataque);
-                }                
+                }   
+            try {
+                validarLostM(j1.getVida(), j2.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
                 break;
             }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 1:
             {
                 int dmg;
@@ -480,6 +493,11 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                 {
                     f2.setVida(f2.getVida()-ataque);
                 }
+                if(f1.getVida()<=0&&f2.getVida()<=0)
+                {
+                    ronda++;
+                }
+                
                 ataque=rand.nextInt(2);
                 if(ataque==0)
                 {
@@ -512,7 +530,14 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     ataque=j4.ataque2();
                 }
                 a.setVida(a.getVida()-ataque);
+            try {
+                validarLostA(a.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=false;
             }
+            }
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 2:
             {
                 int daño=0;
@@ -554,7 +579,12 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     case 7: dmg=a.getmFuego().ataque1();
                     case 8: dmg=a.getmFuego().ataque2();                    
                 }
-                z.setVida(z.getVida()-ataque);
+            try {
+                validarVic(z.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
                 ataque=rand.nextInt(3);
                 if(ataque==0)
                 {
@@ -569,7 +599,12 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     daño=z.getmFuego().ataque2();
                 }
                 a.setVida(a.getVida()-daño);
-                
+            try {
+                validarLostA(a.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
             }
         }
     }
