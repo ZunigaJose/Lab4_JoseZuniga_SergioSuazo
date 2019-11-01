@@ -136,35 +136,30 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     String salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Aire){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Fuego: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Fuego){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Agua: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Agua){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
                     System.out.println("Maestros Tierra: ");
                     salida = " ";
                     for (Object t : maestros) {
                         if(t instanceof Tierra){
-                            salida += "" + maestros.indexOf(t) + ") " + t + "\n";
+                            System.out.println(maestros.indexOf(t) + " " + t);
                         } 
                     }
-                    System.out.println(salida);
-                    
                     break;
                 case 8://pelear
                     try {
@@ -569,13 +564,13 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     
     
     
-public static void Simulacion(Maestro j1,Maestro j2)
+public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4)
 {
     Avatar a;
-    //Tsai t;
+    FuegoZai z;
     int ronda=0;
     int turno=0;
-    int ataque;
+    int ataque=0;
     int atacar;
     int modo=0;
     boolean game=false;
@@ -585,18 +580,17 @@ public static void Simulacion(Maestro j1,Maestro j2)
         {
             case 0:
             {
-                if(turno%2==0)
-                {
                     System.out.print("A cual jugador desea atacar?\n"
                             + "1. Enemigo 1\n"
                             + "2. Enemigo 2: ");
-                    //imprimir ataques j1
-                    System.out.println("Elija el ataque: ");
+                    atacar=leer.nextInt();
+                    System.out.println("Elija el ataque del j1: ");
                     if (j1 instanceof Aire) {
                         ataque = danio("Bola de Aire", "Remolino", j1);
                     }
                     if (j1 instanceof Agua) {
                         ataque = danio("Latigo de Agua", "Huracan", j1);
+                        ataque *= 1.20;
                     }
                     if (j1 instanceof Tierra) {
                         ataque = danio("Muralla", "Terremoto", j1);
@@ -604,22 +598,106 @@ public static void Simulacion(Maestro j1,Maestro j2)
                     if (j1 instanceof Fuego) {
                         ataque = danio("Incendio", "Lanzallamas", j1);
                     }
+                    if(atacar==1)
+                    {
+                        j3.setVida(j3.getVida()-ataque);
+                    }
+                    else
+                    {
+                        j4.setVida(j4.getVida()-ataque);
+                    }
+                    //jugador 2
+                    System.out.print("A cual jugador desea atacar?\n"
+                            + "1. Enemigo 1\n"
+                            + "2. Enemigo 2: ");
+                    atacar=leer.nextInt();
+                    System.out.println("Elija el ataque del j2: ");
+                    if (j2 instanceof Aire) {
+                        ataque = danio("Bola de Aire", "Remolino", j2);
+                    }
+                    if (j2 instanceof Agua) {
+                        ataque = danio("Latigo de Agua", "Huracan", j2);
+                    }
+                    if (j2 instanceof Tierra) {
+                        ataque = danio("Muralla", "Terremoto", j2);
+                    }
+                    if (j2 instanceof Fuego) {
+                        ataque = danio("Incendio", "Lanzallamas", j2);
+                    }
+                    if(atacar==1)
+                    {
+                        j3.setVida(j3.getVida()-ataque);
+                    }
+                    else
+                    {
+                        j4.setVida(j4.getVida()-ataque);
+                    }
                     
-                    //traer daño de ataque
+                    
+                //Ataque compu1
+                ataque=rand.nextInt(2);
+                if(ataque==0)
+                {
+                    ataque=j3.ataque1();
                 }
                 else
                 {
-                    //imprimir ataques j2
-                    System.out.println("Elija el ataque: ");
-                    //traer daño de ataque
+                    ataque=j3.ataque2();
                 }
-                ataque=rand.nextInt(2);
                 atacar=rand.nextInt(2);
-                //afectar daño
+                if(atacar==0)
+                {
+                    j1.setVida(j1.getVida()-ataque);
+                }
+                else
+                {
+                    j2.setVida(j2.getVida()-ataque);
+                }
+                //Ataque cpu2
+                ataque=rand.nextInt(2);
+                if(ataque==0)
+                {
+                    ataque=j4.ataque1();
+                }
+                else
+                {
+                    ataque=j4.ataque2();
+                }
+                atacar=rand.nextInt(2);
+                if(atacar==0)
+                {
+                    j1.setVida(j1.getVida()-ataque);
+                }
+                else
+                {
+                    j2.setVida(j2.getVida()-ataque);
+                }                
                 break;
             }
             case 1:
             {
+                int dmg;
+                System.out.println("Seleccione que ataque usar: "
+                        + "1- Bola de Aire"
+                        + "2- Remolino"
+                        + "3- Latigo de Agua"
+                        + "4- Huracan"
+                        + "5- Muralla"
+                        + "6- Terremoto"
+                        + "7- Incendio"
+                        + "8- Lanzallamas");
+                ataque=leer.nextInt();
+                switch(ataque)
+                {
+                    case 1: dmg=a.getmAire().ataque1();
+                    case 2: dmg=a.getmAire().ataque2();
+                    case 3: dmg=a.getmAgua().ataque1();
+                    case 4: dmg=a.getmAgua().ataque2(); 
+                    case 5: dmg=a.getmTierra().ataque1();
+                    case 6: dmg=a.getmTierra().ataque2();
+                    case 7: dmg=a.getmFuego().ataque1();
+                    case 8: dmg=a.getmFuego().ataque2();                    
+                }
                 
             }
             case 2:
