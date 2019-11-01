@@ -3,6 +3,7 @@ package lab4_josezuniga_sergiosuazo_alessandroreyes;
 public class Aire extends Maestro {
 
     public Aire() {
+        super.setVida(125);
     }
 
     public Aire(String nombre, String rango, int edad) {

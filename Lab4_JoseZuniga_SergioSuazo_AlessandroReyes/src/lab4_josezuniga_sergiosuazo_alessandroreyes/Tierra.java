@@ -3,6 +3,7 @@ package lab4_josezuniga_sergiosuazo_alessandroreyes;
 public class Tierra extends Maestro{
 
     public Tierra() {
+        super.setVida(200);
     }
 
     public Tierra(String nombre, String rango, int edad) {
