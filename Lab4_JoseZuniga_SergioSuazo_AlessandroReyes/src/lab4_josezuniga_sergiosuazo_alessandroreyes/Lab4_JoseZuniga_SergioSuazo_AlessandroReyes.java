@@ -44,7 +44,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         break;
                     }
                     System.out.print("Cual es el nombre del avatar: ");
-                    String nombre = leer.next();
+                    String nombre = leer.nextLine();
                     Maestro ava = new Avatar();
                     ava.setNombre(nombre);
                     ava.getVida();
@@ -53,9 +53,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 2://aire
                     System.out.print("Cual es el nombre del Maestro de aire: ");
-                    nombre = leer.next();
+                    nombre = leer.nextLine();
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    String rango = leer.next();
+                    String rango = leer.nextLine();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     int edad = leer.nextInt();
                     Maestro air = new Aire();
@@ -68,9 +68,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 3://fuego
                     System.out.print("Cual es el nombre del maestro de fuego: ");
-                    nombre = leer.next();
+                    nombre = leer.nextLine();
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    rango = leer.next();
+                    rango = leer.nextLine();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro fire = new Fuego();
@@ -83,9 +83,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 4://agua
                     System.out.print("Cual es el nombre del maestro de agua: ");
-                    nombre = leer.next();
+                    nombre = leer.nextLine();
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    rango = leer.next();
+                    rango = leer.nextLine();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro water = new Agua();
@@ -98,9 +98,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 5://tierra
                     System.out.print("Cual es el nombre del maestro de tierra: ");
-                    nombre = leer.next();
+                    nombre = leer.nextLine();
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    rango = leer.next();
+                    rango = leer.nextLine();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro earth = new Tierra();
@@ -120,7 +120,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     }
                     nombre = "Ozai";
                     System.out.print("Cual es el rango de "+nombre+" : ");
-                    rango = leer.next();
+                    rango = leer.nextLine();
                     System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro Ozai = new FuegoZai();
@@ -220,18 +220,18 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
     }
     
     static void validarVic(int x)throws Misexcepciones{
-        if(x == 0){
+        if(x <= 0){
             throw new Misexcepciones(Color.red,"\n Felicidades, gano \n");
         }
     }
     
     static void validarLostA(int x)throws Misexcepciones{
-        if(x == 0){
+        if(x <= 0){
             throw new Misexcepciones(Color.red,"\n Perdio, intente de nuevo \n");
         }
     }
     static void validarLostM(int x, int y)throws Misexcepciones{
-        if(x==0 && y==0){
+        if(x<=0 && y<=0){
             throw new Misexcepciones(Color.red,"\n Perdio, suerte a la proxima \n");
         }
     }
