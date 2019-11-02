@@ -45,7 +45,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                         break;
                     }
                     System.out.print("Cual es el nombre del avatar: ");
-                    String nombre = leer.next();
+                    String nombre = leer.nextLine();
                     Maestro ava = new Avatar();
                     ava.setNombre(nombre);
                     ava.getVida();
@@ -54,10 +54,17 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 2://aire
                     System.out.print("Cual es el nombre del Maestro de aire: ");
+
                     nombre = leer.next();
                     System.out.print("Cual es el rango de " + nombre + " : ");
                     String rango = leer.next();
                     System.out.print("Cual es la edad de " + nombre + " : ");
+
+                    nombre = leer.nextLine();
+                    System.out.print("Cual es el rango de "+nombre+" : ");
+                     rango = leer.nextLine();
+                    System.out.print("Cual es la edad de "+nombre+" : ");
+
                     int edad = leer.nextInt();
                     Maestro air = new Aire();
                     air.setEdad(edad);
@@ -69,10 +76,17 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 3://fuego
                     System.out.print("Cual es el nombre del maestro de fuego: ");
+
                     nombre = leer.next();
                     System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
                     System.out.print("Cual es la edad de " + nombre + " : ");
+
+                    nombre = leer.nextLine();
+                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    rango = leer.nextLine();
+                    System.out.print("Cual es la edad de "+nombre+" : ");
+
                     edad = leer.nextInt();
                     Maestro fire = new Fuego();
                     fire.setEdad(edad);
@@ -84,10 +98,17 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     break;
                 case 4://agua
                     System.out.print("Cual es el nombre del maestro de agua: ");
+
                     nombre = leer.next();
                     System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
                     System.out.print("Cual es la edad de " + nombre + " : ");
+
+                    nombre = leer.nextLine();
+                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    rango = leer.nextLine();
+                    System.out.print("Cual es la edad de "+nombre+" : ");
+
                     edad = leer.nextInt();
                     Maestro water = new Agua();
                     water.setEdad(edad);
@@ -103,6 +124,10 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
                     System.out.print("Cual es la edad de " + nombre + " : ");
+                    nombre = leer.nextLine();
+                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    rango = leer.nextLine();
+                    System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro earth = new Tierra();
                     earth.setEdad(edad);
@@ -123,6 +148,9 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
                     System.out.print("Cual es el rango de " + nombre + " : ");
                     rango = leer.next();
                     System.out.print("Cual es la edad de " + nombre + " : ");
+                    System.out.print("Cual es el rango de "+nombre+" : ");
+                    rango = leer.nextLine();
+                    System.out.print("Cual es la edad de "+nombre+" : ");
                     edad = leer.nextInt();
                     Maestro Ozai = new FuegoZai();
                     Ozai.setEdad(edad);
@@ -313,274 +341,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -605,12 +366,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
           return num;
     }
 
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -618,6 +374,7 @@ public class Lab4_JoseZuniga_SergioSuazo_AlessandroReyes {
 public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestro f1,Maestro f2,Avatar a,FuegoZai z)
 {
     int ronda=0;
+    int vida;
     int atacar;
     int modo=0;
     boolean game=false;
@@ -626,6 +383,7 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
         int ataque=0;
         switch(ronda)
         {
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 0:
             {
                     System.out.print("A cual jugador desea atacar?\n"
@@ -680,6 +438,10 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     {
                         j4.setVida(j4.getVida()-ataque);
                     }
+                if(j3.getVida()<=0&&j4.getVida()<=0)
+                {
+                    ronda++;
+                }
                     
                     
                 //Ataque compu1
@@ -719,9 +481,16 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                 else
                 {
                     j2.setVida(j2.getVida()-ataque);
-                }                
+                }   
+            try {
+                validarLostM(j1.getVida(), j2.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
                 break;
             }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 1:
             {
                 int dmg;
@@ -758,6 +527,11 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                 {
                     f2.setVida(f2.getVida()-ataque);
                 }
+                if(f1.getVida()<=0&&f2.getVida()<=0)
+                {
+                    ronda++;
+                }
+                
                 ataque=rand.nextInt(2);
                 if(ataque==0)
                 {
@@ -790,7 +564,14 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     ataque=j4.ataque2();
                 }
                 a.setVida(a.getVida()-ataque);
+            try {
+                validarLostA(a.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=false;
             }
+            }
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 2:
             {
                 int daño=0;
@@ -832,7 +613,12 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     case 7: dmg=a.getmFuego().ataque1();
                     case 8: dmg=a.getmFuego().ataque2();                    
                 }
-                z.setVida(z.getVida()-ataque);
+            try {
+                validarVic(z.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
                 ataque=rand.nextInt(3);
                 if(ataque==0)
                 {
@@ -847,7 +633,12 @@ public static void Simulacion(Maestro j1,Maestro j2,Maestro j3,Maestro j4,Maestr
                     daño=z.getmFuego().ataque2();
                 }
                 a.setVida(a.getVida()-daño);
-                
+            try {
+                validarLostA(a.getVida());
+            } catch (Misexcepciones ex) {
+                System.out.println(ex.getMessage());
+                game=true;
+            }
             }
         }
     }
